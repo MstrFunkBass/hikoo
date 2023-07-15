@@ -8,4 +8,8 @@ def index(request):
 
     haiku_output = '\n'.join(lines)
 
-    return HttpResponse(haiku_output)
+    context = {"line_1": lines[0],
+               "line_2": lines[1],
+               "line_3": lines[2]}
+
+    return render(request, "dailyHaiku/index.html", context)
