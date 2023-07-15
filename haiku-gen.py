@@ -9,4 +9,8 @@ completion = openai.ChatCompletion.create(
   ]
 )
 
-print(completion.choices[0].message.content)
+haiku = completion.choices[0].message.content.split('\n')
+
+line_1, line_2, line_3 = haiku[0], haiku[1], haiku[2]
+
+print(line_1, line_2, line_3, sep='\n')
