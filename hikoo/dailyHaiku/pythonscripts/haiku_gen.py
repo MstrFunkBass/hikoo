@@ -1,7 +1,20 @@
+import environ
+
+env = environ.Env()
+
+environ.Env.read_env()
+
+# from pkg_resources import working_set
+
+# installed_packages = ("%s==%s" % (i.key, i.version) for i in working_set)
+# installed_packages_list = sorted(installed_packages)
+
+# print(installed_packages_list)
+
 def return_haiku():
     import os
     import openai
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    openai.api_key = env("OPENAI_API_KEY")
 
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
