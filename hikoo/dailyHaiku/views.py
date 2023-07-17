@@ -24,7 +24,8 @@ def index(request):
 
     context = {"line_1": lines[0],
                "line_2": lines[1],
-               "line_3": lines[2]
+               "line_3": lines[2],
+               "date": datetime.date.today()
                }
 
     return render(request, "dailyHaiku/index.html", context)
