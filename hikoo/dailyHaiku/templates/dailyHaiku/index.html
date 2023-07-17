@@ -1,4 +1,3 @@
-
 <head>
 <style>
     body {
@@ -14,32 +13,49 @@
     text-transform: none;
     color: #ffffff;
     }
-    section.main {
+      section.line-one {
         display: flex;
-        width: 100%;
-        height: 60%;
+        width: 60%;
+        height: 20%;
         margin: auto;
         align-items: center;
-        justify-content:center;
+        justify-content:left;
       }
-
-      section.sub {
+      section.line-two {
         display: flex;
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        align-items: center;
-        justify-content:center;
-      }
-      section.title {
-        display: flex;
-        font-size: 28px;
-        width: 100%;
+        width: 60%;
         height: 20%;
         margin: auto;
         align-items: center;
         justify-content:center;
+      }
+      section.line-three {
+        display: flex;
+        width: 60%;
+        height: 20%;
+        margin: auto;
+        align-items: center;
+        justify-content:right;
+      }
+      section.date {
+        display: flex;
+        font-size: 28px;
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        align-items: top;
+        justify-content:right;
         color: #1b7656;
+      }
+      section.title {
+        display: flex;
+        font-size: 48px;
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        align-items: bottom;
+        justify-content:left;
+        color: #004d36;
       }
 
 </style>
@@ -47,24 +63,23 @@
 <body>
 
     <section class="title">
-        
+        <h1>Hikoo</h1>
     </section>
 
-    <section class="main">
-        <section class="sub">
-            <p>    {{line_1}} <br><br> {{line_2}} <br><br> {{line_3}} </p>
-        </section>
-
+    <section class="line-one">
+        <p>{{line_1}}<br></p>
     </section>
 
-    <section class="title">
-        <h1>daily haiku</h1>
+    <section class="line-two">
+        <p>{{line_2}}<br></p>
     </section>
-    
+
+    <section class="line-three">
+        <p>{{line_3}}<br></p>
+    </section>
+
+    <section class="date">
+        <h1>{{date}}</h1>
+    </section>
 
 </body>
-
-
-
-
-
