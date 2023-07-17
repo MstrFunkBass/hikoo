@@ -19,7 +19,7 @@ def return_haiku():
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "user", "content": "Hello Chat, please generate me a haiku in lowercase."}
+        {"role": "user", "content": "Hello Chat, please generate me a humorous original haiku in lowercase."}
     ]
     )
 
