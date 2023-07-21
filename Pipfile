@@ -17,6 +17,7 @@ tzdata = "==2022.7"
 nltk = "*"
 openai = "*"
 django-environ = "*"
+whitenoise = "*"
 
 [dev-packages]
 
