@@ -84,10 +84,18 @@ WSGI_APPLICATION = 'hikoo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DBHOST is only the server name, not the full URL
+hostname = env('DBHOST')
+
+# Configure Postgres database; the full username is username@servername,
+# which we construct using the DBHOST value.
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DBNAME'),
+        'HOST': hostname + ".postgres.database.azure.com",
+        'USER': env('DBUSER'),
+        'PASSWORD': env('DBPASS') 
     }
 }
 
