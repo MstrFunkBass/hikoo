@@ -1,4 +1,6 @@
 import environ
+import os
+import openai
 
 env = environ.Env()
 
@@ -12,8 +14,7 @@ environ.Env.read_env()
 # print(installed_packages_list)
 
 def return_haiku():
-    import os
-    import openai
+    
     openai.api_key = env("OPENAI_API_KEY")
 
     completion = openai.ChatCompletion.create(
