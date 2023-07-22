@@ -18,6 +18,8 @@ nltk = "*"
 openai = "*"
 django-environ = "*"
 whitenoise = "*"
+pillow = "*"
+django-storages = {extras = ["azure"], version = "*"}
 
 [dev-packages]
 
