@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/936e8ef3-0e91-4f09-ad32-7282f419677e/resourceGroups/hikoo_group/providers/Microsoft.Web/sites/hikoo-app",
+    "appService.deploySubpath": "hikoo"
+}
