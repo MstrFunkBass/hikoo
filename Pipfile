@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.6.0"
+django = "==4.1.5"
+django-crispy-forms = "==1.14.0"
+django-pyodbc-azure = "==1.2.5"
+mssql-django = "==1.2"
+psycopg2-binary = "==2.9.5"
+pyodbc = "==4.0.35"
+pytz = "==2022.7.1"
+sqlparse = "==0.4.3"
+tzdata = "==2022.7"
+nltk = "*"
+openai = "*"
+django-environ = "*"
+whitenoise = "*"
+pillow = "*"
+django-storages = {extras = ["azure"], version = "*"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
+python_full_version = "3.10.9"

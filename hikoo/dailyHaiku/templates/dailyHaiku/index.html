@@ -1,0 +1,64 @@
+{% load static %}
+    
+<head>
+<style>
+
+    body {
+    background: linear-gradient(0deg, #00523971, #159f766b), url("{{ image.image_file.url }}") 10% 0 no-repeat fixed;
+    background-color: black;
+    background-size: cover;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: none;
+    color: #ffffff;
+    }
+      section.line {
+        display: flex;
+        width: 60%;
+        height: 60%;
+        margin: auto;
+        align-items: center;
+        justify-content:left;
+      }
+      section.date {
+        display: flex;
+        font-size: 28px;
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        align-items: top;
+        justify-content:right;
+        color: #c4f5e4;
+      }
+      section.title {
+        display: flex;
+        font-size: 48px;
+        width: 80%;
+        height: 20%;
+        margin: auto;
+        align-items: bottom;
+        justify-content:left;
+        color: #c4f5e4;
+      }
+
+</style>
+</head>
+<body>
+    <section class="title">
+        <h1>Hikoo</h1>
+    </section>
+
+    <section class="line">
+        <p>{{line_1}}<br>{{line_2}}<br>{{line_3}}</p>
+    </section>
+
+    <section class="date">
+        <h1>{{date}}</h1>
+    </section>
+
+</body>
