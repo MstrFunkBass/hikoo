@@ -1,64 +1,163 @@
 {% load static %}
     
 <head>
-<style>
-
+  <title>Hikoo: Daily Haiku</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
     body {
-    background: linear-gradient(0deg, #00523971, #159f766b), url("{{ image.image_file.url }}") 10% 0 no-repeat fixed;
-    background-color: black;
-    background-size: cover;
-    text-align: center;
-    vertical-align: middle;
-    font-family: Arial;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: none;
-    color: #ffffff;
+      margin: 0;
+      font-family: 'Lekton', sans-serif;
+      color: #535353;
+      font-size: 16pt;
+      line-height: 1.5;
+      overflow-x: hidden; /* Prevent horizontal scrollbar due to background image */
     }
-      section.line {
-        display: flex;
-        width: 60%;
-        height: 60%;
-        margin: auto;
-        align-items: center;
-        justify-content:left;
-      }
-      section.date {
-        display: flex;
-        font-size: 28px;
-        width: 80%;
-        height: 20%;
-        margin: auto;
-        align-items: top;
-        justify-content:right;
-        color: #c4f5e4;
-      }
-      section.title {
-        display: flex;
-        font-size: 48px;
-        width: 80%;
-        height: 20%;
-        margin: auto;
-        align-items: bottom;
-        justify-content:left;
-        color: #c4f5e4;
-      }
 
-</style>
+    .container {
+      width: 80%;
+      margin: 10% auto 0; /* Center the container and add 25% top margin to start below the header */
+      padding-top: 50px; /* Add 50px top padding to create space for the header */
+      text-align: left;
+    }
+
+    .haiku {
+      padding: 10px;
+    }
+
+    .todayis {
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .sharebuttons {
+      padding: 10px;
+    }
+
+    .svg-container {
+      display: inline-block;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+
+    .header {
+      height: 50px;
+      background-color: #c6d39f;
+      color: #252525; /* Optional: Change text color to white */
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Align title and menu icon at each end */
+      position: fixed; /* Fix the header at the top */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1; /* Bring the header to the front */
+      padding: 0 10%; /* Add 10% padding to the left and right */
+    }
+
+    .header .title {
+      font-size: 24px;
+    }
+
+    .header .info-icon {
+      cursor: pointer;
+      /* Add more styles for the menu icon as needed */
+    }
+
+    .background-image {
+      background-image: url("{{ image.image_file.url }}");
+      /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: middle center;
+      position: fixed;
+      top: -10px; /* Shift the background image down by the header height */
+      right: 0;
+      bottom: 0;
+      left: 45%;
+      opacity: 0.8;
+      z-index: -1; /* Put the background image behind the content */
+    }
+
+    .background-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 1) 1%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none; /* Allow click-through to the content below */
+    }
+
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 770px) {
+
+      .background-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 1%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none; /* Allow click-through to the content below */
+    }
+
+      .background-image {
+      background-image: url("{{ image.image_file.url }}");
+      /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: middle center;
+      position: fixed;
+      top: 30%; /* Shift the background image down by the header height */
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.8;
+      z-index: -1; /* Put the background image behind the content */
+    }
+    }
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lekton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
+
 <body>
-    <section class="title">
-        <h1>Hikoo</h1>
-    </section>
 
-    <section class="line">
-        <p>{{line_1}}<br>{{line_2}}<br>{{line_3}}</p>
-    </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  
+  <header class="header">
+    <div class="title">Hikoo</div>
+  </header>
+<div class="background-image"></div>
 
-    <section class="date">
-        <h1>{{date}}</h1>
-    </section>
+  <div class="container">
+
+    <div class="haiku">
+      {{line_1}}<br>{{line_2}}<br>{{line_3}}
+    </div>
+
+    <div class="todayis">
+    <p style="font-size: 10pt;">
+      {{date}}
+    </p>
+
+    </div>
+  </div>
 
 </body>
+
+
