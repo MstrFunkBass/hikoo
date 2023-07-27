@@ -41,7 +41,7 @@
 
     .header {
       height: 50px;
-      background-color: #c6d39f;
+      background-color: #c6d39f00;
       color: #252525; /* Optional: Change text color to white */
       display: flex;
       align-items: center;
@@ -54,8 +54,27 @@
       padding: 0 10%; /* Add 10% padding to the left and right */
     }
 
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0);
+      color: white;
+      text-align: center;
+      width: 99%;
+    }
+
     .header .title {
       font-size: 24px;
+    }
+
+    .title {
+      font-size: 42px;
+      font-weight: bolder;
+      color: rgba(240, 255, 255, 0.634);
+      padding: 10px;
+      text-align: right;
     }
 
     .header .info-icon {
@@ -126,6 +145,10 @@
       opacity: 0.8;
       z-index: -1; /* Put the background image behind the content */
     }
+    body {
+      font-size: 12pt;
+    }
+
     }
 
   </style>
@@ -140,11 +163,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   
   <header class="header">
-    <div class="title">Hikoo</div>
+    
   </header>
 <div class="background-image"></div>
 
   <div class="container">
+
+    
 
     <div class="haiku">
       {{line_1}}<br>{{line_2}}<br>{{line_3}}
@@ -156,6 +181,10 @@
     </p>
 
     </div>
+  </div>
+
+  <div class="footer">
+    <div class="title">hikoo</div>
   </div>
 
 </body>
